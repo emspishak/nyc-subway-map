@@ -1,6 +1,6 @@
 # nyc-subway-map
 
-History of the NYC subway map at https://new.mta.info/map/5256
+History of the NYC subway map at https://www.mta.info/map/5256
 
 This history starts at 5 Jan 2022.
 
