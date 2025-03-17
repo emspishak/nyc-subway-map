@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Fetch latest data
         run: |-
-          curl --fail --verbose -o map.pdf https://www.mta.info/map/5256
+          curl --fail --verbose --location -o map.pdf https://www.mta.info/map/5256
       - name: Commit and push if it changed
         run: |-
           git config user.name "Automated"
