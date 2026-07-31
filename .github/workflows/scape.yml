@@ -13,8 +13,26 @@ jobs:
       - name: Check out this repo
         uses: actions/checkout@v7
       - name: Fetch latest data
-        run: |-
-          curl --fail --verbose --location -o map.pdf -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:153.0) Gecko/20100101 Firefox/153.0' -H 'Accept-Encoding: gzip, deflate, br, zstd' https://www.mta.info/map/5256
+        run: >-
+          curl --fail --verbose --location -o map.pdf
+            -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:153.0) Gecko/20100101 Firefox/153.0'
+            -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+            -H 'Accept-Language: en-US,en;q=0.9'
+            -H 'Accept-Encoding: gzip, deflate, br, zstd'
+            -H 'Referer: https://www.mta.info/maps'
+            -H 'Sec-GPC: 1'
+            -H 'Alt-Used: www.mta.info'
+            -H 'Connection: keep-alive'
+            -H 'Upgrade-Insecure-Requests: 1'
+            -H 'Sec-Fetch-Dest: document'
+            -H 'Sec-Fetch-Mode: navigate'
+            -H 'Sec-Fetch-Site: same-origin'
+            -H 'Sec-Fetch-User: ?1'
+            -H 'Priority: u=0, i'
+            -H 'Pragma: no-cache'
+            -H 'Cache-Control: no-cache'
+            -H 'TE: trailers'
+            https://www.mta.info/map/5256
       - name: Commit and push if it changed
         run: |-
           git config user.name "Automated"
